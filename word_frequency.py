@@ -14,15 +14,15 @@ def print_word_freq(file):
     found_words = []
     nopunc = ""
     
-    for punc in text:
-        if punc not in punctuation:
-            nopunc = nopunc + punc
+    for character in text:
+        if character not in punctuation:
+            nopunc = nopunc + character
     lower_text = nopunc.lower()
     # print(lower_text)
-    strings = lower_text.split(" ")
-    # print(strings)
+    no_whitespace = lower_text.split()
+    # print(no_whitespace)
 
-    for word in strings:
+    for word in no_whitespace:
         if word not in stop_words:
             found_words.append(word)
     # print(found_words)
@@ -30,15 +30,15 @@ def print_word_freq(file):
     # print(sort_words)
     duplicate_words = dict()
 
-    for dups in sort_words:
-        if dups in duplicate_words:
-            duplicate_words[dups] += 1
+    for word in sort_words:
+        if word in duplicate_words:
+            duplicate_words[word] += 1
         else:
-            duplicate_words[dups] = 1
-    duplicate_words = { key:value for key, value in duplicate_words.items() if value > 1}
+            duplicate_words[word] = 1
+    duplicate_words = { key:value for key, value in duplicate_words.items() if value >= 1}
 
     for key, value in duplicate_words.items():
-        print(key , ' | ', value)
+        print(key , ' | ', value, value * ("*"))
 
     
     
