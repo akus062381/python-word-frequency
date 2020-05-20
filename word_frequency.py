@@ -36,12 +36,9 @@ def print_word_freq(file):
         else:
             duplicate_words[dups] = 1
     duplicate_words = { key:value for key, value in duplicate_words.items() if value > 1}
-    return duplicate_words
-
-    duplicate_words = print_word_freq(sort_words)
 
     for key, value in duplicate_words.items():
-        print(key , ' :: ', value)
+        print(key , ' | ', value)
 
     
     
